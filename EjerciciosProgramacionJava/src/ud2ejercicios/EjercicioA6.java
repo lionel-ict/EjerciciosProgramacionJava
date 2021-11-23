@@ -1,3 +1,5 @@
+package ud2ejercicios;
+
 public class EjercicioA6 {
 
     public static void main(String[] args) {

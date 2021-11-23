@@ -1,3 +1,5 @@
+package ud2ejercicios;
+
 import java.util.Scanner;
 
 public class EjercicioA18 {

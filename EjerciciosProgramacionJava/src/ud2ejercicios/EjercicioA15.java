@@ -1,3 +1,5 @@
+package ud2ejercicios;
+
 public class EjercicioA15 {
 
     public enum diasSemana {

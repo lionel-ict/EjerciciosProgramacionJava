@@ -1,3 +1,5 @@
+package ud3ejercicios1condicionales;
+
 
 import java.util.Scanner;
 
