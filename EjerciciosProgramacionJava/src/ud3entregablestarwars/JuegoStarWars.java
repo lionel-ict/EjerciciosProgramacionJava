@@ -1,4 +1,4 @@
-package ud3starwars;
+package ud3entregablestarwars;
 
 import java.util.Scanner;
 
