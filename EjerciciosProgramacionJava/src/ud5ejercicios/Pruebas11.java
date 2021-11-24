@@ -37,7 +37,7 @@ public class Pruebas11 {
         
         System.out.println(contA);
         
-        System.out.println("HOLA QUE ASE");
+        System.out.println("hola, ¿qué haces?");
         
     }
     
