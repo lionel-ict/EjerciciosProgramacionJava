@@ -1,3 +1,5 @@
+package ud5ejercicios;
+
 import java.util.Scanner;
 
 public class Ejercicio_21 {

@@ -1,3 +1,5 @@
+package ud5ejercicios;
+
 public class Ejercicio_15 {
 
     public static int suma_vector(int[] v) {
