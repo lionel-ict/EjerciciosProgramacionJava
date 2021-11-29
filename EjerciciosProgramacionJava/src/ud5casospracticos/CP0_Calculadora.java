@@ -2,7 +2,7 @@ package ud5casospracticos;
 
 import java.util.Scanner;
 
-public class CasoPractico0Calculadora {
+public class CP0_Calculadora {
 
     // Muestra el menú, pide al usuario valor rango 1-9 y devuelve la opción elegida.
     public static int muestraMenu() {

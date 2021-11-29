@@ -3,19 +3,17 @@ package ud5casospracticos;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CasoPractico1Contactos {
+public class CP1_ContactosV2 {
 
     // VARIABLES GLOBALES
     public static int maxC = 100; // Máximo nº de contactos
     public static int numC = 0;   // Nº de contactos registrados
+    public static String[] vn = new String[maxC]; // vector de nombres
+    public static String[] vt = new String[maxC]; // vector de teléfonos
+    public static String[] vc = new String[maxC]; // vector de correos
 
     // MAIN PRINCIPAL
     public static void main(String[] args) {
-
-        // Vectores con información de contactos
-        String[] vn = new String[maxC]; // vector de nombres
-        String[] vt = new String[maxC]; // vector de teléfonos
-        String[] vc = new String[maxC]; // vector de correos
 
         // Variables auxiliares
         int opcion;     // opcion del menú
@@ -30,7 +28,7 @@ public class CasoPractico1Contactos {
 
             switch (opcion) {
                 case 1:
-                    verContactosTodos(vn, vt, vc);
+                    verContactosTodos();
                     break;
                 case 2:
                     System.out.print("¿Nombre? ");
@@ -39,36 +37,36 @@ public class CasoPractico1Contactos {
                     t = pedirString();
                     System.out.print("¿Correo? ");
                     c = pedirString();
-                    agregarContacto(vn, vt, vc, n, t, c);
+                    agregarContacto(n, t, c);
                     break;
                 case 3:
                     System.out.print("¿ID de contacto a eliminar? ");
                     pos = pedirIntEnRango(0, numC-1);
-                    eliminarContacto(vn, vt, vc, pos);
+                    eliminarContacto(pos);
                     break;
                 case 4:
                     System.out.print("¿Nombre? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vn, buscar);
-                    verContactosVector(vn, vt, vc, vpos);
+                    verContactosVector(vpos);
                     break;
                 case 5:
                     System.out.print("¿Teléfono? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vt, buscar);
-                    verContactosVector(vn, vt, vc, vpos);
+                    verContactosVector(vpos);
                     break;
                 case 6:
                     System.out.print("¿Correo? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vc, buscar);
-                    verContactosVector(vn, vt, vc, vpos);
+                    verContactosVector(vpos);
                     break;
                 case 7:
                     System.out.print("¿Término a buscar globalmente? ");
                     buscar = pedirString();
-                    vpos = buscarGlobal(vn, vt, vc, buscar);
-                    verContactosVector(vn, vt, vc, vpos);
+                    vpos = buscarGlobal(buscar);
+                    verContactosVector(vpos);
                     break;
                 case 8:
                     System.out.println("¡Gracias! ¡Hasta la próxima!");
@@ -83,7 +81,7 @@ public class CasoPractico1Contactos {
     }
 
     /**
-     * FUNCIONES DE MENÚ Y PEDIR DATOS AL USUARIO
+     * FUNCIONES DEL MENÚ Y PEDIR DATOS AL USUARIO
      */
     
     // Muestra el menú y devuelve la opción elegida por el usuario
@@ -132,21 +130,21 @@ public class CasoPractico1Contactos {
      */
 
     // Muestra la información solo del contacto 'pos' (índice de los vectores) 
-    public static void verContactoPos(String[] vn, String[] vt, String[] vc, int pos) {
+    public static void verContactoPos(int pos) {
         System.out.println(pos + ". " + vn[pos] + " - " + vt[pos] + " - " + vc[pos] );
     }
     
     // Muestra la información de todos los contactos
-    public static void verContactosTodos(String[] vn, String[] vt, String[] vc) {
+    public static void verContactosTodos() {
         for (int i = 0; i < numC; i++) {
-            verContactoPos(vn, vt, vc, i);
+            verContactoPos(i);
         }
     }
     
     // Muestra la información de los contactos indicados en 'vpos' (vector de posiciones)
-    public static void verContactosVector(String[] vn, String[] vt, String[] vc, int[] vpos) {
+    public static void verContactosVector(int[] vpos) {
         for (int i = 0; i < vpos.length; i++) {
-            verContactoPos(vn, vt, vc, vpos[i]);
+            verContactoPos(vpos[i]);
         }
     }
 
@@ -155,7 +153,7 @@ public class CasoPractico1Contactos {
      */
     
     // Añade a los vectores la información de un contacto nuevo (n, t, c)
-    public static void agregarContacto(String[] vn, String[] vt, String[] vc, String n, String t, String c) {
+    public static void agregarContacto(String n, String t, String c) {
         if (numC < maxC) {
             vn[numC] = n;
             vt[numC] = t;
@@ -167,7 +165,7 @@ public class CasoPractico1Contactos {
     }
 
     // Elimina de los vectores el contacto en la posición 'pos'
-    public static void eliminarContacto(String[] vn, String[] vt, String[] vc, int pos) {
+    public static void eliminarContacto(int pos) {
         if (pos >= 0 && pos < numC) {
             eliminarPosDeVector(vn, pos);
             eliminarPosDeVector(vt, pos);
@@ -201,7 +199,7 @@ public class CasoPractico1Contactos {
         // Recorremos 'vector' buscando el texto 'buscar' en sus posiciones
         // Guardaremos en 'vpos' las posiciones que contengan 'buscar'
         for (int i = 0; i < numC; i++) {
-            if (vector[i].toUpperCase().indexOf(buscar.toUpperCase()) != -1) {
+            if (vector[i].toUpperCase().contains(buscar.toUpperCase())) {
                 vpos[npos] = i;
                 npos++;
             }
@@ -215,7 +213,7 @@ public class CasoPractico1Contactos {
 
     // Busca en 'vn', 'vt' y 'vc' los String que contienen 'buscar'
     // Devuelve las posiciones en las que se ha encontrado
-    public static int[] buscarGlobal(String[] vn, String[] vt, String[] vc, String buscar) {
+    public static int[] buscarGlobal(String buscar) {
         
         // NOTA: Sería más modular si reutilizamos buscarContactos(), pero
         // tendríamos 3 vectores de posiciones con números repetidos. Habría
@@ -235,9 +233,9 @@ public class CasoPractico1Contactos {
         // Guardaremos en 'vpos' las posiciones que contengan 'buscar'
         for (int i = 0; i < numC; i++) {
             // Comprobamos
-            boolean encontradoN = vn[i].toUpperCase().indexOf(buscar.toUpperCase()) != -1;
-            boolean encontradoT = vt[i].toUpperCase().indexOf(buscar.toUpperCase()) != -1;
-            boolean encontradoC = vc[i].toUpperCase().indexOf(buscar.toUpperCase()) != -1;
+            boolean encontradoN = vn[i].toUpperCase().contains(buscar.toUpperCase());
+            boolean encontradoT = vt[i].toUpperCase().contains(buscar.toUpperCase());
+            boolean encontradoC = vc[i].toUpperCase().contains(buscar.toUpperCase());
             if (encontradoN || encontradoT || encontradoC) {
                 vpos[npos] = i;
                 npos++;
