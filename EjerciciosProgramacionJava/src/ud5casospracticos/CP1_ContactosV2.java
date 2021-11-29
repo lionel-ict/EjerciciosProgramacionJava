@@ -28,9 +28,11 @@ public class CP1_ContactosV2 {
 
             switch (opcion) {
                 case 1:
+                    // Ver contactos
                     verContactosTodos();
                     break;
                 case 2:
+                    // Añadir contacto
                     System.out.print("¿Nombre? ");
                     n = pedirString();
                     System.out.print("¿Teléfono? ");
@@ -40,35 +42,41 @@ public class CP1_ContactosV2 {
                     agregarContacto(n, t, c);
                     break;
                 case 3:
+                    // Eliminar contacto
                     System.out.print("¿ID de contacto a eliminar? ");
                     pos = pedirIntEnRango(0, numC-1);
                     eliminarContacto(pos);
                     break;
                 case 4:
+                    // Buscar por nombre
                     System.out.print("¿Nombre? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vn, buscar);
                     verContactosVector(vpos);
                     break;
                 case 5:
+                    // Buscar por teléfono
                     System.out.print("¿Teléfono? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vt, buscar);
                     verContactosVector(vpos);
                     break;
                 case 6:
+                    // Buscar por correo
                     System.out.print("¿Correo? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vc, buscar);
                     verContactosVector(vpos);
                     break;
                 case 7:
+                    // Búsqueda global
                     System.out.print("¿Término a buscar globalmente? ");
                     buscar = pedirString();
                     vpos = buscarGlobal(buscar);
                     verContactosVector(vpos);
                     break;
                 case 8:
+                    // Salir
                     System.out.println("¡Gracias! ¡Hasta la próxima!");
                     break;
                 default:

@@ -30,9 +30,11 @@ public class CP1_Contactos {
 
             switch (opcion) {
                 case 1:
+                    // Ver contactos
                     verContactosTodos(vn, vt, vc);
                     break;
                 case 2:
+                    // Añadir contacto
                     System.out.print("¿Nombre? ");
                     n = pedirString();
                     System.out.print("¿Teléfono? ");
@@ -42,35 +44,41 @@ public class CP1_Contactos {
                     agregarContacto(vn, vt, vc, n, t, c);
                     break;
                 case 3:
+                    // Eliminar contacto
                     System.out.print("¿ID de contacto a eliminar? ");
                     pos = pedirIntEnRango(0, numC-1);
                     eliminarContacto(vn, vt, vc, pos);
                     break;
                 case 4:
+                    // Buscar por nombre
                     System.out.print("¿Nombre? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vn, buscar);
                     verContactosVector(vn, vt, vc, vpos);
                     break;
                 case 5:
+                    // Buscar por teléfono
                     System.out.print("¿Teléfono? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vt, buscar);
                     verContactosVector(vn, vt, vc, vpos);
                     break;
                 case 6:
+                    // Buscar por correo
                     System.out.print("¿Correo? ");
                     buscar = pedirString();
                     vpos = buscarContactos(vc, buscar);
                     verContactosVector(vn, vt, vc, vpos);
                     break;
                 case 7:
+                    // Búsqueda global
                     System.out.print("¿Término a buscar globalmente? ");
                     buscar = pedirString();
                     vpos = buscarGlobal(vn, vt, vc, buscar);
                     verContactosVector(vn, vt, vc, vpos);
                     break;
                 case 8:
+                    // Salir
                     System.out.println("¡Gracias! ¡Hasta la próxima!");
                     break;
                 default:
