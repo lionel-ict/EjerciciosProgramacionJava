@@ -1,4 +1,4 @@
-package ud6ejercicios1.Rectangulo;
+package ud6ejercicios1.A3Rectangulo;
 
 public class Main {
 

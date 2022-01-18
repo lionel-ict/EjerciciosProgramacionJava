@@ -1,4 +1,4 @@
-package ud6ejercicios1.Articulo;
+package ud6ejercicios1.A4Articulo;
 
 public class Articulo {
 

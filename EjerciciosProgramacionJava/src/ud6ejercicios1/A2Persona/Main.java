@@ -1,4 +1,4 @@
-package ud6ejercicios1.Persona;
+package ud6ejercicios1.A2Persona;
 
 import java.util.Scanner;
 
