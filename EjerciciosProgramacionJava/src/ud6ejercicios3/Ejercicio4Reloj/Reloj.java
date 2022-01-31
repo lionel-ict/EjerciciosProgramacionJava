@@ -16,15 +16,15 @@ public class Reloj {
 
     // GETTERS
     public int getHora() {
-        return this.hora;
+        return hora;
     }
 
     public int getMinutos() {
-        return this.minutos;
+        return minutos;
     }
 
     public int getSegundos() {
-        return this.segundos;
+        return segundos;
     }
 
     // SETTERS
