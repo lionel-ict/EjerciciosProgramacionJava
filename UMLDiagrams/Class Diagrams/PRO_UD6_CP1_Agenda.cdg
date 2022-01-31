@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio A1">
+  <ClassDiagramComponents>
+    <Class name="Contacto" package="" visibility="public" xPosition="147.0" yPosition="449.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="correo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAll" returnType="String" visibility="public"/>
+        <Method name="imprimir" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Agenda" package="" visibility="public" xPosition="173.0" yPosition="65.0">
+      <Fields>
+        <Field name="contactos" type="Contacto[]" visibility="private"/>
+        <Field name="cuantos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarContacto" returnType="void" visibility="public">
+          <Argument type="Contacto" name="c"/>
+        </Method>
+        <Method name="eliminarContacto" returnType="void" visibility="public">
+          <Argument type="int" name="pos"/>
+        </Method>
+        <Method name="comprobarSiExiste" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="buscarNombre" returnType="Agenda" visibility="public">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="buscarTelefono" returnType="Agenda" visibility="public">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="buscarCorreo" returnType="Agenda" visibility="public">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="buscarGlobal" returnType="Agenda" visibility="public">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="imprimirTodos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Contiene" source="Agenda" target="Contacto" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

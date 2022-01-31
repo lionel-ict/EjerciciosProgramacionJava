@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ED-UD3-2_EjercicioA2">
+  <ClassDiagramComponents>
+    <Class name="Empresa" package="" visibility="public" xPosition="367.0" yPosition="21.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="trabajadores" type="Trabajador[]" visibility="private"/>
+        <Field name="departamentos" type="Departamento[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="anyadirTrabajador" returnType="void" visibility="public">
+          <Argument type="Trabajador" name="t"/>
+        </Method>
+        <Method name="eliminarTrabajador" returnType="void" visibility="public">
+          <Argument type="int" name="pos"/>
+        </Method>
+        <Method name="anyadirDepartamento" returnType="void" visibility="public">
+          <Argument type="Departamento" name="d"/>
+        </Method>
+        <Method name="eliminarDepartamento" returnType="void" visibility="public">
+          <Argument type="int" name="pos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trabajador" package="" visibility="public" xPosition="307.0" yPosition="360.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="salario" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Coordinador" package="" visibility="public" xPosition="246.0" yPosition="649.0">
+      <Fields>
+        <Field name="categoria" type="int" visibility="private"/>
+        <Field name="coordina" type="Departamento" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Currante" package="" visibility="public" xPosition="486.0" yPosition="658.0">
+      <Fields>
+        <Field name="horasExtra" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Departamento" package="" visibility="public" xPosition="549.0" yPosition="360.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="coordinador" type="Coordinador" visibility="private"/>
+        <Field name="currantes" type="Currante[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="anyadirCurrante" returnType="void" visibility="public">
+          <Argument type="Currante" name="c"/>
+        </Method>
+        <Method name="eliminarCurrante" returnType="void" visibility="public">
+          <Argument type="int" name="pos"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Currante" target="Trabajador"/>
+    <IsRelation name="is" source="Coordinador" target="Trabajador"/>
+    <HasRelation name="coordina" source="Departamento" target="Coordinador" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="trabaja" source="Departamento" target="Currante" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="coordina" source="Coordinador" target="Departamento" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Empresa" target="Departamento" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Empresa" target="Trabajador" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
