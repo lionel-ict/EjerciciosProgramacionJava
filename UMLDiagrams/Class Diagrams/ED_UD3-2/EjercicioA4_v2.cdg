@@ -13,16 +13,16 @@
         <Constructor visibility="public"/>
       </Constructors>
       <Methods>
-        <Method name="anyadirAvion" returnType="void" visibility="public">
+        <Method name="anyadirAvion" returnType="Avion" visibility="public">
           <Argument type="Avion" name="a"/>
         </Method>
-        <Method name="eliminarAvion" returnType="void" visibility="public">
+        <Method name="eliminarAvion" returnType="Avion" visibility="public">
           <Argument type="Avion" name="a"/>
         </Method>
-        <Method name="anyadirVuelo" returnType="void" visibility="public">
+        <Method name="anyadirVuelo" returnType="Vuelo" visibility="public">
           <Argument type="Vuelo" name="v"/>
         </Method>
-        <Method name="eliminarVuelo" returnType="void" visibility="public">
+        <Method name="eliminarVuelo" returnType="Vuelo" visibility="public">
           <Argument type="Vuelo" name="v"/>
         </Method>
       </Methods>
@@ -45,6 +45,9 @@
         <Field name="plazasOcupadas" type="int" visibility="private"/>
         <Field name="avion" type="Avion" visibility="private"/>
         <Field name="billetesVendidos" type="Billete[]" visibility="private"/>
+        <Field name="salida" type="Aeropuerto" visibility="private"/>
+        <Field name="destino" type="Aeropuerto" visibility="private"/>
+        <Field name="pesoMaximoBodega" type="int" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -62,10 +65,10 @@
         <Constructor visibility="public"/>
       </Constructors>
       <Methods>
-        <Method name="comprarBillete" returnType="void" visibility="public">
+        <Method name="comprarBillete" returnType="Billete" visibility="public">
           <Argument type="Billete" name="b"/>
         </Method>
-        <Method name="cancelarBillete" returnType="void" visibility="public">
+        <Method name="cancelarBillete" returnType="Billete" visibility="public">
           <Argument type="Billete" name="b"/>
         </Method>
       </Methods>
@@ -77,6 +80,18 @@
         <Field name="cliente" type="Cliente" visibility="private"/>
         <Field name="asiento" type="int" visibility="private"/>
         <Field name="precioVenta" type="double" visibility="private"/>
+        <Field name="bultosPeso" type="int[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Aeropuerto" package="" visibility="public" xPosition="786.0" yPosition="273.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="pais" type="String" visibility="private"/>
       </Fields>
       <Constructors>
         <Constructor visibility="public"/>
@@ -85,13 +100,15 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="billetes vendidos" source="Vuelo" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
-    <HasRelation name="vuelo" source="Billete" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="compra" source="Cliente" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
-    <HasRelation name="vuelos" source="Avion" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
     <HasRelation name="avion" source="Vuelo" target="Avion" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="cliente" source="Billete" target="Cliente" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <HasRelation name="aviones" source="Aerolínea" target="Avion" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
     <HasRelation name="vuelos" source="Aerolínea" target="Vuelo" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="vuelos" source="Avion" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="vuelo" source="Billete" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="billetes vendidos" source="Vuelo" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="cliente" source="Billete" target="Cliente" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="destino" source="Vuelo" target="Aeropuerto" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="compra" source="Cliente" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="aviones" source="Aerolínea" target="Avion" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="salida" source="Vuelo" target="Aeropuerto" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
