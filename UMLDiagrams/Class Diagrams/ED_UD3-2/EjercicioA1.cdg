@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ED_UD3-2_EjercicioA3">
+  <ClassDiagramComponents>
+    <Class name="Instituto" package="" visibility="public" xPosition="221.0" yPosition="22.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="departamentos" type="Departamento[]" visibility="private"/>
+        <Field name="modulos" type="Modulo[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="anyadirDepartamento" returnType="Departamento" visibility="public">
+          <Argument type="Departamento" name="d"/>
+        </Method>
+        <Method name="eliminarDepartamento" returnType="Departamento" visibility="public">
+          <Argument type="Departamento" name="d"/>
+        </Method>
+        <Method name="anyadirModulo" returnType="Modulo" visibility="public">
+          <Argument type="Modulo" name="m"/>
+        </Method>
+        <Method name="eliminarModulo" returnType="Modulo" visibility="public">
+          <Argument type="Modulo" name="m"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Departamento" package="" visibility="public" xPosition="135.0" yPosition="361.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="profesores" type="Profesor[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="anyadirProfesor" returnType="Profesor" visibility="public">
+          <Argument type="Profesor" name="p"/>
+        </Method>
+        <Method name="eliminarProfesor" returnType="Profesor" visibility="public">
+          <Argument type="Profesor" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Modulo" package="" visibility="public" xPosition="450.0" yPosition="361.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="horas" type="int" visibility="private"/>
+        <Field name="p" type="Profesor" visibility="private"/>
+        <Field name="alumnos" type="Alumno[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="matricularAlumno" returnType="Alumno" visibility="public">
+          <Argument type="Alumno" name="a"/>
+        </Method>
+        <Method name="desmatricularAlumno" returnType="Alumno" visibility="public">
+          <Argument type="Alumno" name="a"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="" visibility="public" xPosition="403.0" yPosition="746.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Profesor" package="" visibility="public" xPosition="168.0" yPosition="816.0">
+      <Fields>
+        <Field name="especialidad" type="String" visibility="private"/>
+        <Field name="d" type="Departamento" visibility="private"/>
+        <Field name="modulos" type="Modulo[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Alumno" package="" visibility="public" xPosition="603.0" yPosition="816.0">
+      <Fields>
+        <Field name="esMenor" type="boolean" visibility="private"/>
+        <Field name="modulos" type="Modulo[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="imparte" source="Modulo" target="Profesor" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Instituto" target="Departamento" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="matricula" source="Modulo" target="Alumno" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="pertenece" source="Departamento" target="Profesor" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="pertenece" source="Profesor" target="Departamento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="imparte" source="Profesor" target="Modulo" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="matricula" source="Alumno" target="Modulo" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <IsRelation name="is" source="Alumno" target="Persona"/>
+    <HasRelation name="tiene" source="Instituto" target="Modulo" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Profesor" target="Persona"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
