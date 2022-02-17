@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="EjercicioA5">
+  <ClassDiagramComponents>
+    <Class name="Pedido" package="" visibility="public" xPosition="316.0" yPosition="270.0">
+      <Fields>
+        <Field name="hora" type="Time" visibility="private"/>
+        <Field name="platos" type="Plato[]" visibility="private"/>
+        <Field name="precioTotal" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PedidoLocal" package="" visibility="public" xPosition="181.0" yPosition="550.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PedidoOnline" package="" visibility="public" xPosition="443.0" yPosition="550.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="horaEsperadaLlegada" type="Time" visibility="private"/>
+        <Field name="realizado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="realizado" returnType="void" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="t"/>
+        </Method>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="String" name="d"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Plato" package="" visibility="public" xPosition="618.0" yPosition="270.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ingredientes" type="Ingrediente[]" visibility="private"/>
+        <Field name="veces" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Ingrediente" package="" visibility="public" xPosition="777.0" yPosition="480.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Restaurante" package="" visibility="public" xPosition="291.0" yPosition="23.0">
+      <Fields>
+        <Field name="pedidos" type="Pedido[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="nuevoPedido" returnType="void" visibility="public">
+          <Argument type="Pedido" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="platos" source="Pedido" target="Plato" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="ingredientes" source="Plato" target="Ingrediente" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="PedidoLocal" target="Pedido"/>
+    <HasRelation name="pedidos" source="Restaurante" target="Pedido" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="PedidoOnline" target="Pedido"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

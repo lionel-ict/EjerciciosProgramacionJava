@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="EjercicioA3">
+  <ClassDiagramComponents>
+    <Class name="Aerolínea" package="" visibility="public" xPosition="335.0" yPosition="15.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="aviones" type="Avion[]" visibility="private"/>
+        <Field name="vuelos" type="Vuelo[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="anyadirAvion" returnType="Avion" visibility="public">
+          <Argument type="Avion" name="a"/>
+        </Method>
+        <Method name="eliminarAvion" returnType="Avion" visibility="public">
+          <Argument type="Avion" name="a"/>
+        </Method>
+        <Method name="anyadirVuelo" returnType="Vuelo" visibility="public">
+          <Argument type="Vuelo" name="v"/>
+        </Method>
+        <Method name="eliminarVuelo" returnType="Vuelo" visibility="public">
+          <Argument type="Vuelo" name="v"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Avion" package="" visibility="public" xPosition="190.0" yPosition="330.0">
+      <Fields>
+        <Field name="modelo" type="String" visibility="private"/>
+        <Field name="matricula" type="String" visibility="private"/>
+        <Field name="capacidadMaxima" type="int" visibility="private"/>
+        <Field name="vuelos" type="Vuelo[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Vuelo" package="" visibility="public" xPosition="506.0" yPosition="330.0">
+      <Fields>
+        <Field name="fecha" type="Date" visibility="private"/>
+        <Field name="plazasOcupadas" type="int" visibility="private"/>
+        <Field name="avion" type="Avion" visibility="private"/>
+        <Field name="billetesVendidos" type="Billete[]" visibility="private"/>
+        <Field name="salida" type="Aeropuerto" visibility="private"/>
+        <Field name="destino" type="Aeropuerto" visibility="private"/>
+        <Field name="pesoMaximoBodega" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cliente" package="" visibility="public" xPosition="155.0" yPosition="601.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="fechaNacimiento" type="Date" visibility="private"/>
+        <Field name="billetes" type="Billete[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="comprarBillete" returnType="Billete" visibility="public">
+          <Argument type="Billete" name="b"/>
+        </Method>
+        <Method name="cancelarBillete" returnType="Billete" visibility="public">
+          <Argument type="Billete" name="b"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Billete" package="" visibility="public" xPosition="521.0" yPosition="601.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="vuelo" type="Vuelo" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="asiento" type="int" visibility="private"/>
+        <Field name="precioVenta" type="double" visibility="private"/>
+        <Field name="bultos" type="Bulto[]" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Aeropuerto" package="" visibility="public" xPosition="786.0" yPosition="273.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="pais" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Bulto" package="" visibility="public" xPosition="786.0" yPosition="632.0">
+      <Fields>
+        <Field name="peso" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="billetes vendidos" source="Vuelo" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="vuelos" source="Avion" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="aviones" source="Aerolínea" target="Avion" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="destino" source="Vuelo" target="Aeropuerto" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="salida" source="Vuelo" target="Aeropuerto" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="avion" source="Vuelo" target="Avion" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="Billete" target="Cliente" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="compra" source="Cliente" target="Billete" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="vuelos" source="Aerolínea" target="Vuelo" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="bultos" source="Billete" target="Bulto" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="vuelo" source="Billete" target="Vuelo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
