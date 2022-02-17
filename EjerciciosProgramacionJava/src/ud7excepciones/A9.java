@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class EjercicioA9 {
+public class A9 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

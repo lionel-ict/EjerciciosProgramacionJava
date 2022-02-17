@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EjercicioA11 {
+public class A11 {
 
     public static void main(String[] args) {
         
