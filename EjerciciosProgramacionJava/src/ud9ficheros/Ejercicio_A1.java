@@ -3,7 +3,7 @@ package ud9ficheros;
 import java.io.*;
 import java.util.Scanner;
 
-public class UD11_Ejercicio_A1 {
+public class Ejercicio_A1 {
 
     public static void main(String[] args) {
 

@@ -1,13 +1,12 @@
 package ud9ficheros;
 
-
 import java.io.*;
 
-public class UD11_Ejercicio_A5_Extra {
+public class Ejercicio_A5_Extra {
 
     public static void main(String[] args) {
 
-        File documentos = new File("Documentos");
+        File documentos = new File("src/ud9ficheros/Documentos");
 
         try {
             // Borramos la carpeta 'Documentos' y todo su contenido de forma recursiva

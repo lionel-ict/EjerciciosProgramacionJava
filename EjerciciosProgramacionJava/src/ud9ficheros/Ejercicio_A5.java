@@ -2,7 +2,7 @@ package ud9ficheros;
 
 import java.io.*;
 
-public class UD11_Ejercicio_A5 {
+public class Ejercicio_A5 {
 
     public static void main(String[] args) {
 
