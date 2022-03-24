@@ -8,7 +8,7 @@ public class UD11_Ejercicio_B2 {
     public static void main(String[] args) {
         try {
             // Intentamos abrir el fichero
-            File f = new File("Documentos/alumnos_notas.txt");
+            File f = new File("src/ud9ficheros/Documentos/alumnos_notas.txt");
             Scanner lector = new Scanner(f);
 
             // ArrayList de alumnos

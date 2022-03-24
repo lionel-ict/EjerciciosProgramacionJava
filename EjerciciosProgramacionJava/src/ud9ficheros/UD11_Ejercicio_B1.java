@@ -13,7 +13,7 @@ public class UD11_Ejercicio_B1 {
 
         try {
             // Intentamos abrir el fichero
-            File f = new File("Documentos/numeros.txt");
+            File f = new File("src/ud9ficheros/Documentos/numeros.txt");
             Scanner lector = new Scanner(f);
 
             // Mientras queden elementos vamos leyendo los enteros 

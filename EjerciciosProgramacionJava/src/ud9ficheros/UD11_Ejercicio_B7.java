@@ -13,7 +13,7 @@ public class UD11_Ejercicio_B7 {
 
         try {
             // Obtenemos la lista de archivos de la carpeta Libros
-            File rutaLibros = new File("Documentos/Libros");
+            File rutaLibros = new File("src/ud9ficheros/Documentos/Libros");
             File[] listaLibros = rutaLibros.listFiles();
 
             // Para cada archivo

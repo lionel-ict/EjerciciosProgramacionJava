@@ -7,8 +7,8 @@ public class UD11_Ejercicio_A4 {
     public static void main(String[] args) {
 
         // Instanciamos a la clase File con las rutas relativas de las carpetas a crear
-        File misCosas = new File("Documentos/Mis Cosas");
-        File alfabeto = new File("Documentos/Alfabeto");
+        File misCosas = new File("src/ud9ficheros/Documentos/Mis Cosas");
+        File alfabeto = new File("src/ud9ficheros/Documentos/Alfabeto");
 
         // Creamos las carpetas        
         boolean resultado1 = misCosas.mkdir();
@@ -17,11 +17,11 @@ public class UD11_Ejercicio_A4 {
         System.out.println("¿Se ha creado la carpeta 'Documentos/Alfabeto'? " + resultado2);
 
         // Instanciamos a la clase File con las rutas de origen y destino relativas
-        File fotOrigen = new File("Documentos/Fotografias");
-        File fotDestino = new File("Documentos/Mis Cosas/Fotografias");
+        File fotOrigen = new File("src/ud9ficheros/Documentos/Fotografias");
+        File fotDestino = new File("src/ud9ficheros/Documentos/Mis Cosas/Fotografias");
 
-        File libOrigen = new File("Documentos/Libros");
-        File libDestino = new File("Documentos/Mis Cosas/Libros");
+        File libOrigen = new File("src/ud9ficheros/Documentos/Libros");
+        File libDestino = new File("src/ud9ficheros/Documentos/Mis Cosas/Libros");
 
         // Movemos las carpetas 'Fotografias' y 'Libros' dentro de 'MisCosas'
         resultado1 = fotOrigen.renameTo(fotDestino);

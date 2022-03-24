@@ -7,9 +7,9 @@ public class UD11_Ejercicio_A5 {
     public static void main(String[] args) {
 
         // Instanciamos a la clase File con las rutas relativas de las carpetas a borrar
-        File fotografias = new File("Documentos/Fotografias");
-        File libros = new File("Documentos/Libros");
-        File documentos = new File("Documentos");
+        File fotografias = new File("src/ud9ficheros/Documentos/Fotografias");
+        File libros = new File("src/ud9ficheros/Documentos/Libros");
+        File documentos = new File("src/ud9ficheros/Documentos");
 
         boolean res = false;
 

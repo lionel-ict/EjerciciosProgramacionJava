@@ -15,7 +15,7 @@ public class UD11_Ejercicio_B6 {
             String numeroBuscar = teclado.nextLine();  
             
             // Intentamos abrir el fichero 'pi-million.txt'
-            File fileNumeroPI = new File("Documentos/pi-million.txt");
+            File fileNumeroPI = new File("src/ud9ficheros/Documentos/pi-million.txt");
             Scanner lector = new Scanner(fileNumeroPI);
             
             //Cogemos todos los decimales del número PI del fichero

@@ -10,16 +10,16 @@ public class UD11_Ejercicio_A3 {
         ///////////////////////
         // RENOMBRA CARPETAS
         
-        File docOrigen = new File("Documentos");
-        File docDestino = new File("DOCS");
+        File docOrigen = new File("src/ud9ficheros/Documentos");
+        File docDestino = new File("src/ud9ficheros/DOCS");
         docOrigen.renameTo(docDestino);
         
-        File fotOrigen = new File("DOCS/Fotografias");
-        File fotDestino = new File("DOCS/FOTOS");
+        File fotOrigen = new File("src/ud9ficheros/DOCS/Fotografias");
+        File fotDestino = new File("src/ud9ficheros/DOCS/FOTOS");
         fotOrigen.renameTo(fotDestino);
         
-        File libOrigen = new File("DOCS/Libros");
-        File libDestino = new File("DOCS/LECTURAS");
+        File libOrigen = new File("src/ud9ficheros/DOCS/Libros");
+        File libDestino = new File("src/ud9ficheros/DOCS/LECTURAS");
         libOrigen.renameTo(libDestino);
 
         

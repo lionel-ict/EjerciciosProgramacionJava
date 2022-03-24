@@ -23,8 +23,8 @@ public class UD11_Ejercicio_B4 {
             ruta = teclado.nextLine();
 
             // Ficheros para lectura
-            File fileNombres = new File("Documentos/usa_nombres.txt");
-            File fileApellidos = new File("Documentos/usa_apellidos.txt");
+            File fileNombres = new File("src/ud9ficheros/Documentos/usa_nombres.txt");
+            File fileApellidos = new File("src/ud9ficheros/Documentos/usa_apellidos.txt");
 
             // ArrayList con los datos de los ficheros de lectura         
             ArrayList listaNombres = leerDatosFichero(fileNombres);

@@ -8,7 +8,7 @@ public class UD11_Ejercicio_B5 {
     public static void main(String[] args) {
 
         // Instanciamos a la clase File con la ruta relativa
-        File dirDiccionario = new File("Documentos/Diccionario");
+        File dirDiccionario = new File("src/ud9ficheros/Documentos/Diccionario");
 
         // Creamos la carpeta 'Diccionario'        
         boolean resultado = dirDiccionario.mkdir();
@@ -19,7 +19,7 @@ public class UD11_Ejercicio_B5 {
                 ArrayList<String> alDiccionario = new ArrayList();
 
                 // Lectura de diccionario.txt
-                File fileDiccionario = new File("Documentos/diccionario.txt");
+                File fileDiccionario = new File("src/ud9ficheros/Documentos/diccionario.txt");
                 Scanner reader = new Scanner(fileDiccionario);
 
                 // Recorremos el archivo y vamos añadiendo las palabras al ArrayList
